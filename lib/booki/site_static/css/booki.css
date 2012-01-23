@@ -2,10 +2,13 @@
 .template {
 	display: none !important;
 }
-
+@font-face {
+	font-family:Fontin;
+	src:url("http://opentype.info/demo/fonts/Fontin-Regular.otf")
+	}	
 body {
 	background-color:white;
-	font-family:helvetica,arial,verdana;
+	font-family:fontin,arial,verdana;
 	font-size:12px;
 	background-image: url(/site_static/images/tile_grey.png);
 }
@@ -17,6 +20,45 @@ a:hover {text-decoration: none; color: black;}
 img {
        border-style:none;
        max-width:540px;        
+}
+
+#mood{
+	-webkit-border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px;  
+	border: 1px solid black; 
+	margin-top: 20px;
+}
+
+#signin {
+	position:absolute;
+	top:25px;
+	width:400px;
+	text-align:right;
+	font-family:fontin,arial,verdana;
+	font-size:14px;
+	font-weight:bold;
+	z-index:500;
+}
+
+#logged_in {
+	position:absolute;
+	top:25px;
+	width:760px;
+	text-align:right;
+	font-family:fontin,arial,verdana;
+	font-size:14px;
+	text-transform:uppercase;
+}
+
+#login	{
+	position:absolute;
+	top:25px;
+	width:750px;
+	text-align:right;
+	font-family:fontin,arial,verdana;
+	font-size:14px;
+	text-transform:uppercase;
 }
 
 #page-container {   
@@ -52,20 +94,10 @@ img {
 	padding-top:5px;
 }
 
-#login	{
-	position:absolute;
-	top:25px;
-	width:750px;
-	text-align:right;
-	font-family:helvetica,arial,verdana;
-	font-size:11px;
-	font-weight:bold;
-}
-
 .navbox	{
 	position:absolute;
 	background-color: #fff;
-	left:40px;
+	right:40px;
 	border: 0px solid black;
 	border-top:10px solid black;
 }
@@ -104,7 +136,7 @@ img {
 	position: absolute;
 	background: #ffffff;
 	top:70px;
-	left:150px;
+	left:40px;
 	width:700px;
 	border: 1px solid black;
 	padding: 10px;
@@ -119,13 +151,6 @@ img {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#848284')";
 	/* For IE 5.5 - 7 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#848284');
-}
-
-button {
-        color:white;
-        font-weight:bold;
-        background-color: black;
-        border:0px solid;
 }
 
 input {
