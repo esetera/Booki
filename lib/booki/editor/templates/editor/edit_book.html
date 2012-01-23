@@ -94,7 +94,7 @@ temporarily comment search box
 {% endif %}
 
 {% if "attachments" in tabs %}
-		<li><a href="#tabattachments">{% trans "Attachments" %}</a></li>
+		<li><a href="#tabattachments">{% trans "Images and Files" %}</a></li>
 {% endif %}
 
 {% if "history" in tabs %}
@@ -115,7 +115,7 @@ temporarily comment search box
 
 
 {% if "export" in tabs %}
-		<li><a href="#tabpublish">{% trans "Export" %}</a></li>
+		<li><a href="#tabpublish">{% trans "Publish" %}</a></li>
 {% endif %}
 
 	</ul>
@@ -359,13 +359,14 @@ temporarily comment search box
 
 {% if "attachments" in tabs %}
 	<div id="tabattachments">
-          <h2>{% trans "Attachments" %}</h2>
+          <h2>{% trans "Images and Files" %}</h2>
+	   {% blocktrans %}All images added to your book are listed here as well as any additional files you have uploaded.{% endblocktrans %}
           <div id="attachmentscontainer">
           </div>
 	  <div style="margin-top: 10px">
    	    <a name="delete" href="javascript:void(0)">{% trans "Deleted selected items" %}</a>
           </div>
-	  <h3>{% trans "Upload a new attachment" %}</h3>
+	  <h3>{% trans "Upload a new image or file" %}</h3>
 	  <form method="POST" target="frameupload2" action="../_upload/" enctype="multipart/form-data">
 	    <input type="file" name="entry0">
 	    <input type="hidden" name="attachmenttab" value="1"/>
@@ -380,6 +381,10 @@ temporarily comment search box
 
 {% if "history" in tabs %}
 	<div id="tabhistory">
+          <h2>{% trans "History" %}</h2>
+         <div class="version">
+	   {% blocktrans %}Here you can follow the edit history of your book.{% endblocktrans %}
+	</div>
 	<!-- START history TAB -->
           <div id="historycontainer">
           </div>
@@ -388,8 +393,8 @@ temporarily comment search box
 
 {% if "versions" in tabs %}
        <div id="tabversions">
+          <h2>{% trans "Versions" %}</h2>
 {% if security.isAdmin or is_owner %}
-        <h3>{% trans "New version" %}</h3>
          <div class="version">
 	   {% blocktrans %}With different versions you can easily organise your book. But be careful! Other users will not be able to edit
 and work on previous versions once you create new one. Create new <i>major</i> version if you plan to make a lot of changes, and <i>minor</i> version if you plan to make just a few of them.
@@ -436,7 +441,8 @@ and work on previous versions once you create new one. Create new <i>major</i> v
 {% if "export" in tabs %}
 	<div id="tabpublish">
 	<!-- START publish TAB -->
-          <h1>{% trans "Export" %}</h1>
+          <h2>{% trans "Publish" %}</h2>
+	   {% blocktrans %}Publish your book to various formats or distribution channels.{% endblocktrans %}
           <p></p>
 
           <form method="" action="" onsubmit="return false">
@@ -653,6 +659,8 @@ and work on previous versions once you create new one. Create new <i>major</i> v
 
 {% if "settings" in tabs %}
 	<div id="tabsettings">
+        <h2>{% trans "Settings" %}</h2>
+	   {% blocktrans %}Manage the settings of your book.{% endblocktrans %}
   	  <!-- START settings TAB -->
   	  <h3>{% trans "Language" %}</h3>
               <form name="formlanguages" action="javascript:void(0)" onsubmit="return false;">
@@ -790,6 +798,7 @@ and work on previous versions once you create new one. Create new <i>major</i> v
 
 {% if "notes" in tabs %}
 	<div id="tabnotes">
+        <h2>{% trans "Notes" %}</h2>
 	<!-- START notes TAB -->
 	{% trans "Shared notes for this book" %}
 	<br/>
