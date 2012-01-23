@@ -34,14 +34,27 @@
 
 
   </script>
+<script>
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+</script>
 
 {% endblock %}
 
 {% block content %}
-
 <div style="margin-bottom: 5px">
 
 <div style="clear: both; padding-top: 10px;"/>
+
+
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">My Dashboard</a></li>
+		<li><a href="#tabs-2">Settings</a></li>
+	</ul>
+<div id="tabs-1">
 <table border="0" width="100%" cellspacing="0" cellpadding="0" style="clear: all">
  <tr>
   <td valign="top" width="300">
@@ -130,10 +143,6 @@
      <img src="{{ request.META.SCRIPT_NAME }}/site_static/images/feed-icon-14x14.png" style="margin-right: 10px"><a style="text-decoration: underline" href="/feeds/rss/user/{{ user.username }}/">{% trans "RSS feed of my changes" %}</a>
  </p>
 
-
-
-
-
   </td>
 
   <td width="20"></td>
@@ -153,8 +162,8 @@
 </p>
 
 <p>Following tags: {% user_tagbox user.username %}</p>
-<p>Stalking: {% user_followingbox user.username %}</p>
-<p>Stalkers: {% user_followersbox user.username %}</p>
+<p>Following: {% user_followingbox user.username %}</p>
+<p>Followers: {% user_followersbox user.username %}</p>
 
 <!--
 <h2>{% trans "Books" %}</h2>
@@ -193,5 +202,42 @@
   </td>
  </tr>
 </table>
+	</div>
+	<div id="tabs-2">
+
+<div style="margin-bottom: 5px">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" style="clear: all">
+ <tr>
+  <td valign="top" width="240">
+  <!-- start profile info -->
+  {% profile_image  user %}
+  <br/>
+  {{ user.email }}<br/>
+  {{ user.first_name }}
+  <!-- end profile info -->
+
+  <br/><br/>
+
+  </td>
+  <td width="10"></td>
+  <td valign="top">
+<h2>{% trans "Settings" %}</h2>
+<div style="border-bottom: 1px solid #c0c0c0"></div>
+
+<form action="." method="POST" enctype="multipart/form-data">
+<table>
+{{ settings_form.as_table }}
+</table>
+<br/><br/>
+<button>{% trans "Save user profile" %}</button>
+</form>
+
+  </td>
+ </tr>
+</table>
+
+	</div>
+</div>
 
 {% endblock %}
